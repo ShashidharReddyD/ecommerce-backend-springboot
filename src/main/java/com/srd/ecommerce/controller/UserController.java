@@ -4,6 +4,9 @@ import com.srd.ecommerce.dto.RegisterRequest;
 import com.srd.ecommerce.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import com.srd.ecommerce.dto.LoginRequest;
+import com.srd.ecommerce.dto.LoginResponse;
+
 
 @RestController
 @RequestMapping("/api/auth")
@@ -19,6 +22,13 @@ public class UserController {
     public String register(@Valid @RequestBody RegisterRequest request) {
 
         return userService.registerUser(request);
+
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest request) {
+
+        return userService.loginUser(request);
 
     }
 }
